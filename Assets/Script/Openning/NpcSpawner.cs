@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TestBR.NPC;
 
-namespace TestBR.Core
+namespace TestBR.Openning
 {
     public class NpcSpawner : MonoBehaviour
     {
@@ -12,14 +12,6 @@ namespace TestBR.Core
         
 
 
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.K))
-            {
-                GenerateNPC();
-            }
-
-        }
 
         public void GenerateNPC()
         {
