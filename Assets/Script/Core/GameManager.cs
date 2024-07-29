@@ -18,6 +18,9 @@ namespace TestBR.Core
         private OpeningMechanic openingMechanic;
 
 
+
+        
+
         private void Awake()
         {
             planningMechanic = GetComponent<PlanningMechanic>();

@@ -9,8 +9,13 @@ namespace TestBR.Openning
     {
         [SerializeField] private GameObject npcPrefab;
         [SerializeField] private Transform[] spawnLocations;
-        
 
+        private OpeningMechanic openingMechanic;
+
+        private void Awake()
+        {
+            openingMechanic = FindAnyObjectByType<OpeningMechanic>();
+        }
 
 
         public void GenerateNPC()
@@ -21,6 +26,8 @@ namespace TestBR.Openning
 
             GameObject spawnedNpc = Instantiate(npcPrefab, spawnLocations[spawnLocationIndex].position, Quaternion.identity);
 
+            
+
 
             if(spawnLocationIndex == 0)
             {
@@ -30,6 +37,8 @@ namespace TestBR.Openning
             {
                 targetPoisitionIndex = 0;
             }
+
+            spawnedNpc.GetComponent<OnRestoBehaviour>().onRestoDone.AddListener(openingMechanic.NpcPayments);
 
             spawnedNpc.GetComponent<NpcMover>().SetTarget(spawnLocations[targetPoisitionIndex]);
             spawnedNpc.GetComponent<NpcMover>().SetInitialTarget(spawnLocations[targetPoisitionIndex]);

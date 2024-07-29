@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TestBR.NPC
 {
@@ -8,11 +9,15 @@ namespace TestBR.NPC
     {
         [SerializeField] float waitTimeOnResto = 2f;
 
+        public UnityEvent onRestoDone;
+
+
 
         private float restoTimer;
 
         private NpcMover npcMover;
         private bool isInResto;
+        
         public bool isDone {  get; private set; }
         
 
@@ -43,6 +48,7 @@ namespace TestBR.NPC
 
                 print("Makan Selesai");
 
+                onRestoDone.Invoke();
                 
                 isInResto = false;
                 isDone = true;

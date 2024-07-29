@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TestBR.Core;
 
 namespace TestBR.Planning
 {
@@ -8,6 +9,7 @@ namespace TestBR.Planning
     {
 
         [SerializeField] GameObject planningUI;
+        [SerializeField] StatsSO resourcesDatabase;
 
         void Start()
         {
@@ -30,5 +32,7 @@ namespace TestBR.Planning
         {
             planningUI.SetActive(true);
         }
+
+        
     }
 }
