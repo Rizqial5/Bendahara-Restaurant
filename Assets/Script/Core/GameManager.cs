@@ -18,7 +18,7 @@ namespace TestBR.Core
         private OpeningMechanic openingMechanic;
 
 
-
+        
         
 
         private void Awake()
@@ -55,6 +55,8 @@ namespace TestBR.Core
         {
             gameStateMachine.ChangeState(openningState);
         }
+
+        
 
         
 

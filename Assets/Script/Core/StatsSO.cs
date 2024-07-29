@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 namespace TestBR.Core
@@ -11,6 +12,7 @@ namespace TestBR.Core
 
         private Dictionary<StatsEnum, float > resourcesLookUpTable;
 
+        
         public void BuildLookupTable()
         {
             if (resourcesLookUpTable != null) return;
@@ -34,11 +36,24 @@ namespace TestBR.Core
         public void AddTotalSource(StatsEnum resourceCategory, float addAmount)
         {
 
+
             resourcesLookUpTable[resourceCategory] += addAmount;
-                    
+
         }
 
         
+
+        public bool CheckCanBuy(StatsEnum resourceCategory, float addAmount)
+        {
+            if (resourcesLookUpTable[resourceCategory] + addAmount < 0)
+            {
+                Debug.Log("Tidak bisa beli");
+                return false;
+            }
+
+            return true;
+        }
+
 
     }
 

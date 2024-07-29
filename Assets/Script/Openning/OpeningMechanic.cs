@@ -10,6 +10,7 @@ namespace TestBR.Openning
         [SerializeField] private NpcSpawner npcSpawner;
         [SerializeField] StatsSO resourcesDatabase;
 
+        private float moneyModifier;
         public NpcSpawner GetNpcSpawner()
         { return npcSpawner; }
 
@@ -19,7 +20,7 @@ namespace TestBR.Openning
 
             print("Npc Membayar " + amount);
 
-            resourcesDatabase.AddTotalSource(StatsEnum.Gold, amount);
+            resourcesDatabase.AddTotalSource(StatsEnum.Gold, amount + moneyModifier);
 
         }
     }

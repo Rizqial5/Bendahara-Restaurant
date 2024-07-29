@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Ps4
   m_EditorClassIdentifier: 
   objectName: Ps4
+  priceAmount: 200
   descriptionText: Ps4 untuk bermain

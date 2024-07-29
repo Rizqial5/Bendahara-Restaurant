@@ -12,12 +12,14 @@ namespace TestBR.UI
         [TextArea(2,8)]
         [SerializeField] string descriptionTextContainer;
 
-
+        
         public void SetObjectButton(string itemText, string descriptionText)
         {
             itemName.text = itemText;
             descriptionTextContainer = descriptionText;
         }
+
+        
 
 
        

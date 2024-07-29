@@ -10,6 +10,7 @@ namespace TestBR.Planning
 
         [SerializeField] GameObject planningUI;
         [SerializeField] StatsSO resourcesDatabase;
+        [SerializeField] ShopMechannic shopMechannic;
 
         void Start()
         {
@@ -32,6 +33,14 @@ namespace TestBR.Planning
         {
             planningUI.SetActive(true);
         }
+
+        public List<ShopObjectSO> GetBuyedObjectLists()
+        {
+            return shopMechannic.GetBuyedLists();
+        }
+
+        public StatsSO GetResourcesDatabase()
+        { return resourcesDatabase; }
 
         
     }

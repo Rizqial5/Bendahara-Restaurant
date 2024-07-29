@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Karaoke System
   m_EditorClassIdentifier: 
   objectName: Karaoke
+  priceAmount: 400
   descriptionText: Pengunjung bisa bernyanyi sepuasnya
