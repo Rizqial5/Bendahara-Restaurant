@@ -15,12 +15,18 @@ namespace TestBR.Core
         public override void EnterState()
         {
             base.EnterState();
+
+            openingMechanic.GetDayTimer().SetStartHour(8);
+            openingMechanic.GetDayTimer().TimeDisplay();
         }
 
         public override void ExitState()
         {
             Debug.Log("Toko tutup");
 
+            openingMechanic.GetDayTimer().AddDay();
+
+            openingMechanic.GetDayTimer().SetOpen();
             planningMechanic.ActivePlanning();
         }
 
@@ -35,6 +41,16 @@ namespace TestBR.Core
             {
                 openingMechanic.GetNpcSpawner().GenerateNPC();
             }
+
+
+            openingMechanic.GetDayTimer().TimeStart();
+
+            if(openingMechanic.GetDayTimer().GetIsClosed())
+            {
+                gameManager.gameStateMachine.ChangeState(gameManager.planningState);
+            }
+
+
         }
 
         public override void PhysicsUpdate()

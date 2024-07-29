@@ -11,6 +11,13 @@ namespace TestBR.Openning
         [SerializeField] StatsSO resourcesDatabase;
 
         private float moneyModifier;
+        private DayTimer dayTimer;
+
+        private void Awake()
+        {
+            dayTimer = GetComponent<DayTimer>();
+        }
+
         public NpcSpawner GetNpcSpawner()
         { return npcSpawner; }
 
@@ -23,5 +30,7 @@ namespace TestBR.Openning
             resourcesDatabase.AddTotalSource(StatsEnum.Gold, amount + moneyModifier);
 
         }
+
+        public DayTimer GetDayTimer() { return dayTimer; }
     }
 }

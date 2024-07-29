@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TestBR.Core
 {
-    [CreateAssetMenu(fileName = "Shop", menuName = "ShopObject", order = 1)]
+    
     public class ShopObjectSO : ScriptableObject
     {
         [SerializeField] string objectName;
