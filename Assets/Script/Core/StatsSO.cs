@@ -35,12 +35,23 @@ namespace TestBR.Core
 
         public void AddTotalSource(StatsEnum resourceCategory, float addAmount)
         {
-
+            BuildLookupTable();
 
             resourcesLookUpTable[resourceCategory] += addAmount;
 
         }
 
+        public bool CheckResources(StatsEnum recourceCategory)
+        {
+            BuildLookupTable();
+
+            if (resourcesLookUpTable[recourceCategory] == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
         
 
         public bool CheckCanBuy(StatsEnum resourceCategory, float addAmount)

@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Ps4
   priceAmount: 200
+  modifierEffects:
+  - resourceCategory: 0
+    effectModifier: 50
   descriptionText: Ps4 untuk bermain

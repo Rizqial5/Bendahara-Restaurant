@@ -13,16 +13,19 @@ namespace TestBR.UI
 
         [Header("Text")]
         [SerializeField] TextMeshProUGUI goldAmount;
+        [SerializeField] TextMeshProUGUI ingredientAmount;
 
 
         private void Start()
         {
             goldAmount.text = resourcesDatabase.GetTotalSource(StatsEnum.Gold).ToString();
+            ingredientAmount.text = resourcesDatabase.GetTotalSource(StatsEnum.FoodIngredients).ToString();
         }
 
         private void Update()
         {
             goldAmount.text = resourcesDatabase.GetTotalSource(StatsEnum.Gold).ToString();
+            ingredientAmount.text = resourcesDatabase.GetTotalSource(StatsEnum.FoodIngredients).ToString();
         }
 
 

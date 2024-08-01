@@ -21,6 +21,8 @@ namespace TestBR.Restaurant
             {
                 if (collision.GetComponent<NpcController>().GetNpcIsDone()) return;
 
+                if (attractMechanic.GetResourcesDatabase().CheckResources(Core.StatsEnum.FoodIngredients)) return;
+
                 if(attractMechanic.CheckProbability())
                 {
                     print(collision.name + " Masuk Restaurant");

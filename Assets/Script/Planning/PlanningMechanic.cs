@@ -39,6 +39,11 @@ namespace TestBR.Planning
             return shopMechannic.GetBuyedLists();
         }
 
+        public ShopEffectActivator GetEffectActivator()
+        {
+            return shopMechannic.GetShopEffectActivator();
+        }
+
         public StatsSO GetResourcesDatabase()
         { return resourcesDatabase; }
 

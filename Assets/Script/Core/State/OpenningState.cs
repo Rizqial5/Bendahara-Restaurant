@@ -18,6 +18,8 @@ namespace TestBR.Core
 
             openingMechanic.GetDayTimer().SetStartHour(8);
             openingMechanic.GetDayTimer().TimeDisplay();
+
+            //Effect Activation
         }
 
         public override void ExitState()
@@ -34,12 +36,17 @@ namespace TestBR.Core
         {
             if(Input.GetKeyDown(KeyCode.C))
             {
-                gameManager.gameStateMachine.ChangeState(gameManager.planningState);
+                openingMechanic.GetDayTimer().SetIsClosed(true);
             }
 
             if(Input.GetKeyDown(KeyCode.S))
             {
                 openingMechanic.GetNpcSpawner().GenerateNPC();
+            }
+
+            if(openingMechanic.GetResourcesDatabase().CheckResources(StatsEnum.FoodIngredients))
+            {
+                openingMechanic.GetDayTimer().SetIsClosed(true);
             }
 
 

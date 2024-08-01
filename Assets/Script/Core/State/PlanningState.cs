@@ -30,6 +30,11 @@ namespace TestBR.Core
         public override void FrameUpdate()
         {
             base.FrameUpdate();
+
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                planningMechanic.GetEffectActivator().ActivateEffect();
+            }
         }
 
         public override void PhysicsUpdate()

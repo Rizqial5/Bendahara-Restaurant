@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TestBR.Core;
 using UnityEngine;
 
 namespace TestBR.Restaurant
@@ -11,12 +12,11 @@ namespace TestBR.Restaurant
 
         [SerializeField] private Transform restaurantPosition;
 
+        [SerializeField] StatsSO resourcesDatabase;
+
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                print(CheckProbability());
-            }
+           
         }
 
 
@@ -27,6 +27,14 @@ namespace TestBR.Restaurant
 
             // Bandingkan angka acak dengan probabilitas
             return randomValue <= probability;
+        }
+
+        
+        public StatsSO GetResourcesDatabase()
+        {
+
+            return resourcesDatabase; 
+        
         }
 
         public Transform GetRestoPosition()

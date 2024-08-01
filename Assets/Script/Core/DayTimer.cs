@@ -21,28 +21,9 @@ namespace TestBR.Core
 
         public UnityEvent onHourChanged;
         public UnityEvent onAnHourLeft;
+        public UnityEvent onChangeDays;
 
 
-
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-
-
-
-
-
-        }
 
         public void TimeStart()
         {
@@ -68,11 +49,11 @@ namespace TestBR.Core
             {
                 onAnHourLeft.Invoke();
             }
-            else if (currentHour == 17)
-            {
-                isClosed = true;
-                print("Toko sudah ditutup");
-            }
+            //else if (currentHour == 17)
+            //{
+            //    isClosed = true;
+            //    print("Toko sudah ditutup");
+            //}
         }
 
         public void TimeDisplay()
@@ -88,11 +69,18 @@ namespace TestBR.Core
         {
             dayCount++;
             currentTime = 0;
+
+            onChangeDays.Invoke();
         }
 
         public void SetStartHour(int startTime)
         {
             currentTime = startTime * 3600f;
+        }
+
+        public bool SetIsClosed(bool value)
+        {
+            return isClosed = value;
         }
 
         public bool GetIsClosed()

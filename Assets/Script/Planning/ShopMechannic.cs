@@ -35,7 +35,12 @@ namespace TestBR.Planning
 
         private List<ShopObjectSO> buyedShopList;
 
+        private ShopEffectActivator shopEffectActivator;
 
+        private void Awake()
+        {
+               shopEffectActivator = GetComponent<ShopEffectActivator>();
+        }
 
         private void Start()
         {
@@ -139,5 +144,10 @@ namespace TestBR.Planning
 
         public List<ShopObjectSO> GetBuyedLists()
         { return buyedShopList; }
+
+        public ShopEffectActivator GetShopEffectActivator()
+        {
+            return shopEffectActivator;
+        }
     }
 }
