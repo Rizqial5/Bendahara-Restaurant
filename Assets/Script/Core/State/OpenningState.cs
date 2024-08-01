@@ -30,11 +30,16 @@ namespace TestBR.Core
 
             openingMechanic.GetDayTimer().SetOpen();
             planningMechanic.ActivePlanning();
+
+            planningMechanic.GetMissionManager().RemoveCompletedMission();
         }
 
         public override void FrameUpdate()
         {
-            if(Input.GetKeyDown(KeyCode.C))
+            planningMechanic.GetMissionManager().CheckCompleteMission();
+
+            #region Input for Debug
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 openingMechanic.GetDayTimer().SetIsClosed(true);
             }
@@ -44,10 +49,17 @@ namespace TestBR.Core
                 openingMechanic.GetNpcSpawner().GenerateNPC();
             }
 
-            if(openingMechanic.GetResourcesDatabase().CheckResources(StatsEnum.FoodIngredients))
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                openingMechanic.GetResourcesDatabase().AddTotalSource(StatsEnum.Gold, 100);
+            }
+
+            if (openingMechanic.GetResourcesDatabase().CheckResources(StatsEnum.FoodIngredients))
             {
                 openingMechanic.GetDayTimer().SetIsClosed(true);
             }
+
+            #endregion
 
 
             openingMechanic.GetDayTimer().TimeStart();

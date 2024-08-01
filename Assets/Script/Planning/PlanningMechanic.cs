@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TestBR.Core;
+using TestBR.Mission;
 
 namespace TestBR.Planning
 {
@@ -11,17 +12,9 @@ namespace TestBR.Planning
         [SerializeField] GameObject planningUI;
         [SerializeField] StatsSO resourcesDatabase;
         [SerializeField] ShopMechannic shopMechannic;
+        [SerializeField] MissionManager missionManager;
 
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
 
 
         public void PlayOpening()
@@ -42,6 +35,11 @@ namespace TestBR.Planning
         public ShopEffectActivator GetEffectActivator()
         {
             return shopMechannic.GetShopEffectActivator();
+        }
+
+        public MissionManager GetMissionManager()
+        {
+            return missionManager;
         }
 
         public StatsSO GetResourcesDatabase()

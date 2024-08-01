@@ -14,8 +14,8 @@ namespace TestBR.Core
 
         public override void EnterState()
         {
-            base.EnterState();
 
+            planningMechanic.GetMissionManager().GenerateMission();
             
         }
 
@@ -29,9 +29,9 @@ namespace TestBR.Core
 
         public override void FrameUpdate()
         {
-            base.FrameUpdate();
+            planningMechanic.GetMissionManager().CheckCompleteMission();
 
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 planningMechanic.GetEffectActivator().ActivateEffect();
             }

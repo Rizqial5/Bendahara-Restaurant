@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TestBR.Core;
+using TestBR.Mission;
 
 namespace TestBR.Openning
 {
@@ -9,7 +10,7 @@ namespace TestBR.Openning
     {
         [SerializeField] private NpcSpawner npcSpawner;
         [SerializeField] StatsSO resourcesDatabase;
-
+        
         private float moneyModifier;
         private float foodModifier;
         private float baseModifier = 0;
@@ -76,5 +77,6 @@ namespace TestBR.Openning
 
         public StatsSO GetResourcesDatabase() { return resourcesDatabase; }
         public DayTimer GetDayTimer() { return dayTimer; }
+        
     }
 }
