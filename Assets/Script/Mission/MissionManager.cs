@@ -86,15 +86,12 @@ namespace TestBR.Mission
                 if(item.CheckMission())
                 {
 
-                    CheckCountMission(item);
+                    
 
                     missionDatabaseDict[item] = true;
 
                     print(item.GetMissionTitle() + " Telah Selesai");
 
-                    item.ResetValues();
-
-                    //activeMissions.Remove(item);
                     
 
                 }
@@ -115,19 +112,32 @@ namespace TestBR.Mission
             }
         }
 
-        public void RemoveCompletedMission()
+        public void RemoveCompletedMission(MissionSO mission)
         {
-            for (int i = 0; i < activeMissions.Count; i++)
-            {
-                if (activeMissions[i].CheckMission())
-                {
-                    activeMissions.RemoveAt(i);
-                }
-            }
+            
+             activeMissions.Remove(mission);
+            
         }
+
+        public void CompleteButton(MissionSO mission)
+        {
+            print("Hadiah telah diterima");
+
+            CheckCountMission(mission);
+
+            mission.GetReward();
+
+            RemoveCompletedMission(mission);
+
+            
+        }
+
 
         public List<MissionSO> GetActiveMissions()
         {  return activeMissions; }
+
+        public Dictionary<MissionSO,bool> GetMissionDatabase()
+        { return missionDatabaseDict; }
 
         private void OnDisable()
         {

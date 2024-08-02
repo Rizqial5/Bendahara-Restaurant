@@ -31,7 +31,7 @@ namespace TestBR.Core
             openingMechanic.GetDayTimer().SetOpen();
             planningMechanic.ActivePlanning();
 
-            planningMechanic.GetMissionManager().RemoveCompletedMission();
+            
         }
 
         public override void FrameUpdate()

@@ -11,6 +11,7 @@ namespace TestBR.UI
     {
         [SerializeField] GameObject missionPanel;
         [SerializeField] Button missionButton;
+        [SerializeField] Button completedButton;
 
         [SerializeField] TextMeshProUGUI missionTitle;
         [SerializeField] TextMeshProUGUI missionProgress;
@@ -68,6 +69,7 @@ namespace TestBR.UI
                     primarySpawned.GetComponentInChildren<TextMeshProUGUI>().text = item.GetMissionTitle();
 
                     primarySpawned.onClick.AddListener(() => { ShowMissionDetails(item.GetMissionTitle(), item.GetMissionProgressDesc(), item.GetMissionDescipriton()); });
+                    primarySpawned.onClick.AddListener(() => { ShowCompletedButton(item, primarySpawned); });
 
                     spawnedButtons.Add(primarySpawned);
                 }
@@ -78,6 +80,7 @@ namespace TestBR.UI
                     optionalSpawned.GetComponentInChildren<TextMeshProUGUI>().text = item.GetMissionTitle();
 
                     optionalSpawned.onClick.AddListener(() => { ShowMissionDetails(item.GetMissionTitle(), item.GetMissionProgressDesc(), item.GetMissionDescipriton()); });
+                    optionalSpawned.onClick.AddListener(() => { ShowCompletedButton(item, optionalSpawned); });
 
                     spawnedButtons.Add(optionalSpawned);
                 }
@@ -93,6 +96,35 @@ namespace TestBR.UI
             missionProgress.text = missionProgressText;
             missionDesc.text = missionDescriptionText;
         }
+
+        public void ShowCompletedButton(MissionSO missionSO, Button activeButtonMission)
+        {
+            completedButton.onClick.RemoveAllListeners();
+
+            if(missionSO.CheckMission())
+            {
+
+                completedButton.gameObject.SetActive(true);
+
+                completedButton.onClick.AddListener(() => { missionManager.CompleteButton(missionSO); });
+
+                completedButton.onClick.AddListener(() => { RemoveMissionUI(activeButtonMission) ; });
+
+            }
+
+            
+        }
+
+        public void RemoveMissionUI(Button buttonList)
+        {
+            ShowMissionDetails("", "", "");
+
+            spawnedButtons.Remove(buttonList);
+            Destroy(buttonList.gameObject);
+
+            completedButton.gameObject.SetActive(false);
+        }
+        
 
     }
 }

@@ -12,20 +12,22 @@ namespace TestBR.Mission
     {
 
         [SerializeField] float targetGold;
+        [SerializeField] float rewardGold;
 
         private float currentGold;
 
-        private PlanningMechanic planningMechanic;
-        private StatsSO resourcesDatabase;
+       
         private string currentGoldDesc;
+
+        public CheckGoldMission(StatsSO resourceDatabase) : base(resourceDatabase)
+        {
+        }
 
         public override bool CheckCompleteMission()
         {
-            planningMechanic = FindAnyObjectByType<PlanningMechanic>();
+            
 
-            resourcesDatabase = planningMechanic.GetResourcesDatabase();
-
-            currentGold = resourcesDatabase.GetTotalSource(StatsEnum.Gold);
+            currentGold = resourceDatabase.GetTotalSource(StatsEnum.Gold);
 
             currentGoldDesc = "Current Gold : " + currentGold;
 
@@ -48,6 +50,10 @@ namespace TestBR.Mission
             currentGold = 0;
         }
 
+        public override void GetRewardCompleted()
+        {
+            resourceDatabase.AddTotalSource(StatsEnum.Gold, rewardGold);
+        }
 
 
     }

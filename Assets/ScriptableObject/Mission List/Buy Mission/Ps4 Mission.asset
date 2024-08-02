@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb627de51e1860448b77193395b63fbe, type: 3}
-  m_Name: Check Gold
+  m_Script: {fileID: 11500000, guid: 87e8c994cfdb5d34c9e9be78af02eabc, type: 3}
+  m_Name: Ps4 Mission
   m_EditorClassIdentifier: 
   resourceDatabase: {fileID: 11400000, guid: c591dcc58c03b3f4a828c61d6d90c1cb, type: 2}
-  targetGold: 1000
-  rewardGold: 1000
+  targetedShopObject: {fileID: 11400000, guid: c3e998322b2938f4f83a579c29b80148, type: 2}
+  goldReward: 500

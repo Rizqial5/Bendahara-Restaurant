@@ -39,6 +39,11 @@ namespace TestBR.Mission
             missionProgressDesc = checkMissionSO.MissionProgress();
         }
 
+        public void GetReward()
+        {
+            checkMissionSO.GetRewardCompleted();
+        }
+
         public void ResetValues()
         {
             checkMissionSO.ResetValues();
