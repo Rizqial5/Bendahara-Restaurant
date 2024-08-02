@@ -24,6 +24,8 @@ namespace TestBR.Mission
         {
             shopMechannic = FindAnyObjectByType<ShopMechannic>();
 
+            if (shopMechannic.GetBuyedLists() == null) return false;
+
             if (shopMechannic.GetBuyedLists().Contains(targetedShopObject))
             {
                 return true;

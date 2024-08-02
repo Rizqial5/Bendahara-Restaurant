@@ -32,11 +32,9 @@ namespace TestBR.Planning
             return shopMechannic.GetBuyedLists();
         }
 
-        public ShopEffectActivator GetEffectActivator()
-        {
-            return shopMechannic.GetShopEffectActivator();
-        }
-
+        public ShopMechannic GetShopMechannic()
+        { return shopMechannic; }
+        
         public MissionManager GetMissionManager()
         {
             return missionManager;

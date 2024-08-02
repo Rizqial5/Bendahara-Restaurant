@@ -31,10 +31,7 @@ namespace TestBR.Core
         {
             planningMechanic.GetMissionManager().CheckCompleteMission();
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                planningMechanic.GetEffectActivator().ActivateEffect();
-            }
+            planningMechanic.GetShopMechannic().ActivateShopEffects();
         }
 
         public override void PhysicsUpdate()

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using TestBR.Openning;
+using TestBR.Planning;
 using UnityEngine;
 
 namespace TestBR.Core
 {
-    
+    [CreateAssetMenu(fileName = "Shop", menuName = "Shop/Shop Object", order = 1)]
     public class ShopObjectSO : ScriptableObject
     {
         [SerializeField] string objectName;
+        [SerializeField] ShopEnum shopEnum;
+
         [SerializeField] float priceAmount;
-        [SerializeField] ModifierEffect[] modifierEffects;
+        [SerializeField] List<ShopEffectSO> objectEffects;
         
 
         [TextArea(2, 8)]
@@ -28,28 +31,15 @@ namespace TestBR.Core
         public float GetPrice()
         { return priceAmount; }
 
-        public void BuildLookupTable()
-        {
-            if (modifierDictionary != null) return;
-
-            modifierDictionary = new Dictionary<StatsEnum, float>();
-
-            foreach (ModifierEffect modifierAttributes in modifierEffects)
-            {
-                modifierDictionary[modifierAttributes.resourceCategory] = modifierAttributes.effectModifier;
-            }
-        }
+       
 
         public void ActivateEffect()
         {
-            BuildLookupTable();
-
-            if (modifierDictionary == null) return;
-
-            openingMechanic = FindAnyObjectByType<OpeningMechanic>();
-
-            openingMechanic.SetModifierPercentage(modifierDictionary);
-
+            foreach (ShopEffectSO item in objectEffects)
+            {
+                item.ActivateEffect();
+            }
+          
         }
 
         public float GetModiiferPercentage(StatsEnum statsEnum)
@@ -61,12 +51,5 @@ namespace TestBR.Core
     }
 
 
-    [System.Serializable]
-    public class ModifierEffect
-    {
-        [SerializeField] public StatsEnum resourceCategory;
-        [SerializeField] public float effectModifier;
-
-       
-    }
+   
 }

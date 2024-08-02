@@ -37,6 +37,7 @@ namespace TestBR.Core
         public override void FrameUpdate()
         {
             planningMechanic.GetMissionManager().CheckCompleteMission();
+            planningMechanic.GetShopMechannic().ActivateShopEffects();
 
             #region Input for Debug
             if (Input.GetKeyDown(KeyCode.C))

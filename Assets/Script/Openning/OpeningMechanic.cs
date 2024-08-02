@@ -48,28 +48,13 @@ namespace TestBR.Openning
 
         }
 
-        public void SetModifierPercentage(Dictionary<StatsEnum,float> effectModifier)
+        public void SetModifierPercentage(StatsEnum statsEnum, float modifierValue)
         {
-
-            foreach (var item in effectModifier)
+           
+            if(statsEnum == StatsEnum.Gold)
             {
-                if(item.Key == StatsEnum.Gold)
-                {
-                    if (moneyModifier != baseModifier) return;
-
-                    moneyModifier = effectModifier[StatsEnum.Gold];
-                    print("Money modifier ditambahkan " + moneyModifier + " persen");
-
-
-                }
-                else if(item.Key == StatsEnum.FoodIngredients)
-                {
-                    if (foodModifier != baseModifier) return;
-
-                    foodModifier = effectModifier[StatsEnum.FoodIngredients];
-                }
+                moneyModifier = modifierValue;
             }
-
             
         }
 

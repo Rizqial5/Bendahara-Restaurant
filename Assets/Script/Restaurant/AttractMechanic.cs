@@ -14,6 +14,8 @@ namespace TestBR.Restaurant
 
         [SerializeField] StatsSO resourcesDatabase;
 
+        private float probabiltyModifier;
+
         void Update()
         {
            
@@ -25,8 +27,19 @@ namespace TestBR.Restaurant
             // Hasilkan angka acak antara 0 dan 1
             float randomValue = Random.Range(0f, 1f);
 
+            float totalProbabiltyModifier = probability * probabiltyModifier / 100;
+
+            float totalProbability = probability + totalProbabiltyModifier;
+
+           
+
             // Bandingkan angka acak dengan probabilitas
-            return randomValue <= probability;
+            return randomValue <= totalProbability;
+        }
+
+        public void SetProbabiltyModifier(float modifierValue)
+        {
+            probabiltyModifier = modifierValue;
         }
 
         

@@ -50,6 +50,7 @@ namespace TestBR.UI
 
             missionPanel.SetActive(true);
 
+            ShowMissionDetails("", "", "");
             GenerateButtonMission();
 
         }

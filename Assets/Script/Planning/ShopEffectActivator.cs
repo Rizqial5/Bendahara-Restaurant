@@ -7,64 +7,14 @@ namespace TestBR.Planning
 {
     public class ShopEffectActivator : MonoBehaviour
     {
-        private ShopMechannic shopMechannic;
-
-        Dictionary<ShopObjectSO, bool> totalActivatedShopObject;
-
-
-        List<ShopObjectSO> totalShopObject;
-
-        private void Awake()
-        {
-            shopMechannic = GetComponent<ShopMechannic>();
-
-            totalActivatedShopObject = new Dictionary<ShopObjectSO, bool>();
-        }
-
-
-        public void BuildLookUpTableShop()
+        
+        public void ActivateShopEffects(List<ShopObjectSO> inventoryShopObject)
         {
             
-
-            totalShopObject = shopMechannic.GetBuyedLists();
-
-            
-
-            if (totalShopObject == null)
+            foreach (ShopObjectSO item in inventoryShopObject)
             {
-                print("Barang tidak ada ");
-                return;
-            }
-
-            foreach (ShopObjectSO item in totalShopObject)
-            {
-                totalActivatedShopObject[item] = false;
-            }
-        }
-
-        public void ActivateEffect()
-        {
-            
-            BuildLookUpTableShop();
-
-            foreach (ShopObjectSO item in totalShopObject)
-            {
-
-                if (totalActivatedShopObject[item] == true)
-                {
-                    print("Efek telah diaktivasi");
-                    continue;
-
-                }
-                
-
                 item.ActivateEffect();
-
-                totalActivatedShopObject[item] = true;
             }
-
-
-
         }
     }
 }
