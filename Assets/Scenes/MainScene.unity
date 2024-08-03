@@ -3187,7 +3187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &738673201
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3644,6 +3644,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1638581495}
         m_TargetAssemblyTypeName: TestBR.Planning.ResourceAllocation, Assembly-CSharp
         m_MethodName: ShowAllocationUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1638581497}
+        m_TargetAssemblyTypeName: TestBR.Planning.GoldReport, Assembly-CSharp
+        m_MethodName: ShowResourceUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5292,6 +5304,7 @@ MonoBehaviour:
   shopMechannic: {fileID: 1854897606}
   missionManager: {fileID: 905278762}
   resourceAllocation: {fileID: 1638581495}
+  goldReport: {fileID: 1638581497}
 --- !u!114 &1255179381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5885,7 +5898,7 @@ GameObject:
   - component: {fileID: 1432925781}
   - component: {fileID: 1432925780}
   m_Layer: 5
-  m_Name: MainTenance (2)
+  m_Name: Total Gold Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5907,8 +5920,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: -185}
-  m_SizeDelta: {x: 266.6864, y: 50}
+  m_AnchoredPosition: {x: 6.5978, y: -185.9467}
+  m_SizeDelta: {x: 351.882, y: 51.8932}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432925780
 MonoBehaviour:
@@ -6844,7 +6857,7 @@ GameObject:
   - component: {fileID: 1614986314}
   - component: {fileID: 1614986313}
   m_Layer: 5
-  m_Name: MainTenance (1)
+  m_Name: Current Gold Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7028,6 +7041,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee2c348a241b59418d5bc76bc7d9ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourcesDatabase: {fileID: 11400000, guid: c591dcc58c03b3f4a828c61d6d90c1cb, type: 2}
+  ingredientsSpendText: {fileID: 987906077}
+  maintenanceSpendText: {fileID: 1779748746}
+  currentGoldText: {fileID: 1614986313}
+  totalGoldText: {fileID: 1432925780}
 --- !u!1 &1779748744
 GameObject:
   m_ObjectHideFlags: 0
