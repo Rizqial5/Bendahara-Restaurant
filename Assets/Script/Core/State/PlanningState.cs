@@ -16,6 +16,8 @@ namespace TestBR.Core
         {
 
             planningMechanic.GetMissionManager().GenerateMission();
+
+            
             
         }
 
@@ -25,12 +27,17 @@ namespace TestBR.Core
 
             planningMechanic.PlayOpening();
 
+            planningMechanic.GetResourceAllocation().StarAllocation();
+            planningMechanic.GetGoldReport().AddFormulation();
+
         }
 
         public override void FrameUpdate()
         {
-            planningMechanic.GetMissionManager().CheckCompleteMission();
 
+            
+            planningMechanic.GetMissionManager().CheckCompleteMission();
+            
             planningMechanic.GetShopMechannic().ActivateShopEffects();
         }
 

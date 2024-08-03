@@ -13,6 +13,8 @@ namespace TestBR.Planning
         [SerializeField] StatsSO resourcesDatabase;
         [SerializeField] ShopMechannic shopMechannic;
         [SerializeField] MissionManager missionManager;
+        [SerializeField] ResourceAllocation resourceAllocation;
+        [SerializeField] GoldReport goldReport;
 
         
 
@@ -38,6 +40,14 @@ namespace TestBR.Planning
         public MissionManager GetMissionManager()
         {
             return missionManager;
+        }
+
+        public GoldReport GetGoldReport()
+        { return goldReport; }
+
+        public ResourceAllocation GetResourceAllocation()
+        {
+            return resourceAllocation;
         }
 
         public StatsSO GetResourcesDatabase()
