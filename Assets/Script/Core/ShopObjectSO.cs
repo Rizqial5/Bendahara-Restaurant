@@ -13,13 +13,17 @@ namespace TestBR.Core
         [SerializeField] ShopEnum shopEnum;
 
         [SerializeField] float priceAmount;
-        [SerializeField] List<ShopEffectSO> objectEffects;
-        
+        [SerializeField] float maintenanceCost;
+
+        [SerializeField] List<ShopEffectSO> positiveObjectEffects;
+        [SerializeField] List<ShopEffectSO> negativeObjectEffects;
+
 
         [TextArea(2, 8)]
         [SerializeField] private string descriptionText;
 
         private OpeningMechanic openingMechanic;
+        private PlanningMechanic planningMechanic;
         private Dictionary<StatsEnum, float> modifierDictionary;
 
         public string GetObjectName()
@@ -35,11 +39,20 @@ namespace TestBR.Core
 
         public void ActivateEffect()
         {
-            foreach (ShopEffectSO item in objectEffects)
+            foreach (ShopEffectSO item in positiveObjectEffects)
             {
                 item.ActivateEffect();
             }
           
+        }
+
+        public void SetMaintenanceCost()
+        {
+            planningMechanic = FindAnyObjectByType<PlanningMechanic>();
+
+            Debug.Log("Maintenance telah ditambahkan " + maintenanceCost);
+
+            planningMechanic.GetGoldReport().AddMaintenanceCost(maintenanceCost);
         }
 
         public float GetModiiferPercentage(StatsEnum statsEnum)

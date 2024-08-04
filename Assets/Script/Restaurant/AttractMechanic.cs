@@ -42,6 +42,10 @@ namespace TestBR.Restaurant
             probabiltyModifier = modifierValue;
         }
 
+        public void AddProbabilityModifier(float modifierValue)
+        {
+            probabiltyModifier += modifierValue;
+        }
         
         public StatsSO GetResourcesDatabase()
         {

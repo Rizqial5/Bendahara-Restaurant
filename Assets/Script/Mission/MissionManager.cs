@@ -36,6 +36,7 @@ namespace TestBR.Mission
 
                         continue;
                     }
+                    if (activeMissions.Contains(item.Key)) continue;
 
                     activeMissions.Add(item.Key);
 
@@ -46,6 +47,7 @@ namespace TestBR.Mission
                 {
                     if (optionalMissionCount == 3) continue;
                     if (item.Value == true) continue;
+                    if (activeMissions.Contains(item.Key)) continue;
 
                     activeMissions.Add(item.Key);
 

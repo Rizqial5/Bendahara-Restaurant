@@ -134,6 +134,7 @@ namespace TestBR.Planning
 
 
             buyedShopList.Add(tempShopObject);
+            tempShopObject.SetMaintenanceCost();
 
             
         }

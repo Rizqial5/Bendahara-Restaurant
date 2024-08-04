@@ -23,6 +23,7 @@ namespace TestBR.Planning
         private float maintenanceSpend;
         private float currentGold;
         private float totalGold;
+        private float maintenanceSpendAddtion;
 
         private void Awake()
         {
@@ -50,12 +51,19 @@ namespace TestBR.Planning
         {
             currentGold = resourcesDatabase.GetTotalSource(StatsEnum.Gold);
             ingredientSpend = resourceAllocation.GetTotalSpendingGold();
-            maintenanceSpend = -50;
+            maintenanceSpend = -50 + maintenanceSpendAddtion;
         }
 
         public void AddFormulation()
         {
             resourcesDatabase.SetTotalSource(StatsEnum.Gold, totalGold);
+        }
+
+        public void AddMaintenanceCost(float addAmount)
+        {
+            maintenanceSpendAddtion += addAmount;
+
+            
         }
     }
 }

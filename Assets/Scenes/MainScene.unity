@@ -1549,6 +1549,7 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 1936740395}
   - {fileID: 375460353}
+  totalCustomer: {fileID: 1465541834}
 --- !u!4 &325984349
 Transform:
   m_ObjectHideFlags: 0
@@ -3870,6 +3871,7 @@ MonoBehaviour:
   missionDatabase:
   - {fileID: 11400000, guid: 2acdb2605062f8f4ca68e72b303fe904, type: 2}
   - {fileID: 11400000, guid: ac4275a8fb0ab6647b9959484c7e0c8f, type: 2}
+  - {fileID: 11400000, guid: 3eaf050b69d158b4d8ec033282f47770, type: 2}
 --- !u!4 &905278763
 Transform:
   m_ObjectHideFlags: 0
@@ -6219,6 +6221,7 @@ GameObject:
   - component: {fileID: 1465541830}
   - component: {fileID: 1465541833}
   - component: {fileID: 1465541832}
+  - component: {fileID: 1465541834}
   m_Layer: 0
   m_Name: Restaurant (Dummy)
   m_TagString: Untagged
@@ -6326,6 +6329,18 @@ MonoBehaviour:
   probability: 0.5
   restaurantPosition: {fileID: 2108124291}
   resourcesDatabase: {fileID: 11400000, guid: c591dcc58c03b3f4a828c61d6d90c1cb, type: 2}
+--- !u!114 &1465541834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465541829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eed1d3f199b10c4083e08af6856b2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496688933
 GameObject:
   m_ObjectHideFlags: 0

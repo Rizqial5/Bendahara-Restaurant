@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TestBR.NPC;
+using TestBR.Restaurant;
 
 namespace TestBR.Openning
 {
@@ -9,8 +10,10 @@ namespace TestBR.Openning
     {
         [SerializeField] private GameObject npcPrefab;
         [SerializeField] private Transform[] spawnLocations;
+        [SerializeField] private TotalCustomer totalCustomer;
 
         private OpeningMechanic openingMechanic;
+        
 
         private void Awake()
         {
@@ -39,6 +42,7 @@ namespace TestBR.Openning
             }
 
             spawnedNpc.GetComponent<OnRestoBehaviour>().onRestoDone.AddListener(openingMechanic.NpcPayments);
+            spawnedNpc.GetComponent<OnRestoBehaviour>().onRestoDone.AddListener(totalCustomer.AddCustomerCounter);
 
             spawnedNpc.GetComponent<NpcMover>().SetTarget(spawnLocations[targetPoisitionIndex]);
             spawnedNpc.GetComponent<NpcMover>().SetInitialTarget(spawnLocations[targetPoisitionIndex]);
