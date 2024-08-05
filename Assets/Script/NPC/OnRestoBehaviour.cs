@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 namespace TestBR.NPC
 {
     public class OnRestoBehaviour : MonoBehaviour
@@ -10,7 +11,9 @@ namespace TestBR.NPC
         [SerializeField] float waitTimeOnResto = 2f;
 
         public UnityEvent onRestoDone;
+        public UnityEvent onEnterResto;
 
+        private SpriteRenderer spriteRenderer;
 
 
         private float restoTimer;
@@ -24,6 +27,7 @@ namespace TestBR.NPC
         private void Awake()
         {
             npcMover = GetComponent<NpcMover>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -40,6 +44,11 @@ namespace TestBR.NPC
 
             restoTimer += Time.deltaTime;
 
+            if(restoTimer >= 0.5f)
+            {
+                spriteRenderer.enabled = false;
+            }
+
             if(restoTimer >= waitTimeOnResto)
             {
                 
@@ -49,7 +58,10 @@ namespace TestBR.NPC
                 print("Makan Selesai");
 
                 onRestoDone.Invoke();
-                
+
+
+                spriteRenderer.enabled = true;
+
                 isInResto = false;
                 isDone = true;
             }
@@ -63,6 +75,7 @@ namespace TestBR.NPC
         {
             if(collision.name == "Restaurant Door")
             {
+                onEnterResto.Invoke();
                 isInResto=true;
             }
         }

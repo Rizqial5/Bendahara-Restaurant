@@ -105,7 +105,7 @@ TextureImporter:
         width: 224
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,6 +113,48 @@ TextureImporter:
       bones: []
       spriteID: 70453541461791548891a0efc3010f4d
       internalID: 2103831491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buildings 2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2176
+        width: 224
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc8b24fa479a2f4ca1258c6ac109247
+      internalID: -217199376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buildings part 2 1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2015
+        width: 224
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8eacf17dbbd62e428ae481cabfd6b19
+      internalID: 1061112921
       vertices: []
       indices: 
       edges: []
@@ -129,6 +171,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Buildings: 2103831491
+      Buildings 2: -217199376
+      Buildings part 2 1: 1061112921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,6 +19,9 @@ namespace TestBR.Core
             openingMechanic.GetDayTimer().SetStartHour(8);
             openingMechanic.GetDayTimer().TimeDisplay();
 
+            
+            openingMechanic.GetNpcSpawner().RepeatSpawnCars();
+
             //Effect Activation
         }
 
