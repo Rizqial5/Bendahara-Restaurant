@@ -21,5 +21,13 @@ namespace TestBR.Planning
             attractMechanic.SetProbabiltyModifier(effectPercentageValue);
             
         }
+
+        public override string GetEffectDescription()
+        {
+            string effectDescription = "Meningkatkan attractness " + effectPercentageValue + " %";
+
+
+            return effectDescription;
+        }
     }
 }

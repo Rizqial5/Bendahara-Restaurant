@@ -8,13 +8,7 @@ namespace TestBR.Restaurant
     {
         private int totalCustomer = 0;
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.O)) // debugging
-            {
-                totalCustomer = 50;
-            }
-        }
+        
 
         public void AddCustomerCounter()
         {

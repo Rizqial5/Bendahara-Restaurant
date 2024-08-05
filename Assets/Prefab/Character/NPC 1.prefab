@@ -16,8 +16,10 @@ GameObject:
   - component: {fileID: 5962785932812089194}
   - component: {fileID: 7878686804771448057}
   - component: {fileID: 5515864329374370851}
+  - component: {fileID: 9207930240023221269}
+  - component: {fileID: 3379619389000482074}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: NPC 1
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 382545474, guid: 81d0d8edc0c3f4c4fb0bfcb07ac0cf80, type: 3}
+  m_Sprite: {fileID: 547363579, guid: eb668339e82bfae459aab759a79f8006, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,6 +211,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeOnResto: 2
+  onRestoDone:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnterResto:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5515864329374370851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +229,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6302121dc5d5b9a40b64bc3134e45774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9207930240023221269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796218264428331198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6cd8e037c5c3c46a5bf6474020e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &3379619389000482074
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796218264428331198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06d304c56f94197468f96aa284d44762, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

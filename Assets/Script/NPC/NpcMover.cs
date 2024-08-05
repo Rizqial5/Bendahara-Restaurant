@@ -14,12 +14,14 @@ namespace TestBR.NPC
         private Transform initalTarget;  //target sebelum masuk ke resto
 
         private Transform targetNow;
+        private NpcAnimController animator;
 
         private float NPCPosX = 0;
 
         private void Awake()
         {
             npcAgent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<NpcAnimController>();
         }
 
         private void Start()
@@ -35,11 +37,11 @@ namespace TestBR.NPC
 
         private void Update()
         {
-            
-
-            
 
 
+
+
+            NpcXPosition();
 
             if (HasReachedTarget())
             {
@@ -52,6 +54,8 @@ namespace TestBR.NPC
                 npcAgent.isStopped = false;
             }
 
+            animator.SetAnimWalk(npcAgent.isStopped);
+            animator.SetAnimPos(NPCPosX, npcAgent.velocity.y);
             
         }
 

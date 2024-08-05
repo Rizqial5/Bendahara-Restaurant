@@ -10,11 +10,13 @@ namespace TestBR.Openning
     {
         [SerializeField] private NpcSpawner npcSpawner;
         [SerializeField] StatsSO resourcesDatabase;
-        
+        [SerializeField] private RecapMechanic recapMechanic;
+
+
         private float moneyModifier;
         private float foodModifier;
         private float baseModifier = 0;
-
+        
         
 
         private DayTimer dayTimer;
@@ -24,6 +26,7 @@ namespace TestBR.Openning
         private void Awake()
         {
             dayTimer = GetComponent<DayTimer>();
+            
         }
 
         public NpcSpawner GetNpcSpawner()
@@ -41,6 +44,7 @@ namespace TestBR.Openning
             float totalMoneyApplied = amount + totalMoneyModifier;
 
             resourcesDatabase.AddTotalSource(StatsEnum.Gold, totalMoneyApplied);
+            recapMechanic.AddGoldToday(totalMoneyApplied);
 
             resourcesDatabase.AddTotalSource(StatsEnum.FoodIngredients, foodDecreaseAmount);
 
@@ -62,6 +66,7 @@ namespace TestBR.Openning
 
         public StatsSO GetResourcesDatabase() { return resourcesDatabase; }
         public DayTimer GetDayTimer() { return dayTimer; }
+        public RecapMechanic GetRecapMechanic() { return recapMechanic; }
         
     }
 }

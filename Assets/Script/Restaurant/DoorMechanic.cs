@@ -8,13 +8,7 @@ namespace TestBR.Restaurant
     {
         [SerializeField] private GameObject doorObject;
 
-        private void Update()
-        {
-            //if(Input.GetKeyDown(KeyCode.J))
-            //{
-            //    StartDoorOpen();
-            //}
-        }
+        
 
         public void StartDoorOpen()
         {

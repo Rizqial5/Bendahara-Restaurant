@@ -18,6 +18,13 @@ namespace TestBR.Planning
 
             openingMechanic.SetModifierPercentage(Core.StatsEnum.Gold, modifierPercenntage);
         }
+
+        public override string GetEffectDescription()
+        {
+            string effectDescription = "Meningkatkan pendapatan gold " + modifierPercenntage + "% per Customer";
+
+            return effectDescription;
+        }
     }
 
 }

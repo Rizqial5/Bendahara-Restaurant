@@ -24,9 +24,10 @@ namespace TestBR.Planning
         [SerializeField] TextMeshProUGUI showItemName;
         [SerializeField] TextMeshProUGUI showItemDesc;
         [SerializeField] TextMeshProUGUI showItemPrice;
+        [SerializeField] TextMeshProUGUI showItemEffects;
         [SerializeField] TextMeshProUGUI showMaintenanceCost;
 
-
+        [SerializeField] TextMeshProUGUI effecItemsTextPrefab;
 
         private PlanningMechanic planningMechanic;
         private ShopEffectActivator shopEffectActivator;
@@ -37,8 +38,11 @@ namespace TestBR.Planning
         private ShopObjectSO tempShopObject;
 
         private List<ShopObjectSO> buyedShopList;
+        private List<string> itemEffectDescs;
+        private List<TextMeshProUGUI> spawnedItemEffects;
 
-        
+
+
 
         private void Start()
         {
@@ -82,10 +86,10 @@ namespace TestBR.Planning
             {
                 GameObject spawnObject = Instantiate(shopObjectButton, shopPanelTransform);
 
-                spawnObject.GetComponent<ShopObjectButton>().SetObjectButton(shopItem.GetObjectName(), shopItem.GetDescriptionText());
+                spawnObject.GetComponent<ShopObjectButton>().SetObjectButton(shopItem.GetObjectName(), shopItem.GetDescriptionText(), shopItem.GetIcon());
 
                 spawnObject.GetComponent<Button>().onClick.AddListener(() => { ShowButton(shopItem); });
-
+                
 
                 spawnedShopObjects.Add(spawnObject);
             }
@@ -99,8 +103,17 @@ namespace TestBR.Planning
             showItemName.text = shopObject.GetObjectName();
             showItemDesc.text = shopObject.GetDescriptionText();
             showItemPrice.text = "Harga : " + shopObject.GetPrice().ToString();
+            
             showMaintenanceCost.text = "Maintenance Cost : " + shopObject.GetMaintenanceCost().ToString();
 
+            if(itemEffectDescs != null)
+            {
+                itemEffectDescs.Clear();
+            }
+
+            itemEffectDescs = shopObject.GetShopEffectsDescription();
+
+            ShowItemPositiveEffects(itemEffectDescs);
 
             tempPrice = shopObject.GetPrice();
             tempShopObject = shopObject;
@@ -152,6 +165,34 @@ namespace TestBR.Planning
             shopEffectActivator = GetComponent<ShopEffectActivator>();
 
             shopEffectActivator.ActivateShopEffects(buyedShopList);
+        }
+
+        public void ShowItemPositiveEffects(List<string> effectDescs)
+        {
+            
+
+            if (spawnedItemEffects != null)
+            {
+                foreach (TextMeshProUGUI item in spawnedItemEffects)
+                {
+                    Destroy(item.gameObject);
+                }
+
+                spawnedItemEffects.Clear();
+            }
+
+
+            spawnedItemEffects = new List<TextMeshProUGUI>();
+
+            foreach (string item in effectDescs)
+            {
+                TextMeshProUGUI spawnedText = Instantiate(effecItemsTextPrefab, showItemEffects.transform);
+
+                spawnedText.text = item;
+
+                spawnedItemEffects.Add(spawnedText);
+                
+            }
         }
 
         public List<ShopObjectSO> GetBuyedLists()

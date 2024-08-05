@@ -252,7 +252,7 @@ TextureImporter:
         width: 41
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 8, z: 6, w: 6}
       outline: []
       physicsShape: []
@@ -260,6 +260,27 @@ TextureImporter:
       bones: []
       spriteID: ff236429a38ceed41a494ca792c10397
       internalID: 553228205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Header
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 672
+        width: 60
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 10, y: 2, z: 8, w: 14}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e05493ad9b7d5743816ef0e799c66f1
+      internalID: -1426707267
       vertices: []
       indices: 
       edges: []
@@ -279,6 +300,7 @@ TextureImporter:
       Base Panel: 810072231
       Button_White: -1694376500
       Gold: 449204042
+      Header: -1426707267
       Ingredients: 695901254
       Inside Panel: -1237257658
       Inside_Panel 2: -2048911964

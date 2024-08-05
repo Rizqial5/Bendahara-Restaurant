@@ -23,6 +23,8 @@ namespace TestBR.Core
             openingMechanic.GetNpcSpawner().RepeatSpawnCars();
             openingMechanic.GetNpcSpawner().RepeatSpawnNpc();
 
+            openingMechanic.GetRecapMechanic().ResetRecap();
+
             //Effect Activation
         }
 
@@ -35,6 +37,9 @@ namespace TestBR.Core
             openingMechanic.GetDayTimer().AddDay();
 
             openingMechanic.GetDayTimer().SetOpen();
+
+            openingMechanic.GetRecapMechanic().ShowRecapPanel();
+
             planningMechanic.ActivePlanning();
 
             
@@ -45,31 +50,24 @@ namespace TestBR.Core
             planningMechanic.GetMissionManager().CheckCompleteMission();
             planningMechanic.GetShopMechannic().ActivateShopEffects();
 
+            openingMechanic.GetDayTimer().TimeStart();
+
             #region Input for Debug
+
             if (Input.GetKeyDown(KeyCode.C))
             {
                 openingMechanic.GetDayTimer().SetIsClosed(true);
             }
 
-            if(Input.GetKeyDown(KeyCode.S))
-            {
-                openingMechanic.GetNpcSpawner().GenerateNPC();
-            }
-
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                openingMechanic.GetResourcesDatabase().AddTotalSource(StatsEnum.Gold, 100);
-            }
-
             #endregion
 
 
-            if (openingMechanic.GetResourcesDatabase().CheckResources(StatsEnum.FoodIngredients))
+            if (openingMechanic.GetResourcesDatabase().CheckResources(StatsEnum.FoodIngredients) )
             {
                 openingMechanic.GetDayTimer().SetIsClosed(true);
             }
 
-            openingMechanic.GetDayTimer().TimeStart();
+            
 
             if(openingMechanic.GetDayTimer().GetIsClosed())
             {

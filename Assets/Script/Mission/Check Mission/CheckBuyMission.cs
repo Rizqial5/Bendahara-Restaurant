@@ -42,7 +42,21 @@ namespace TestBR.Mission
 
         public override string MissionProgress()
         {
-            return base.MissionProgress();
+            shopMechannic = FindAnyObjectByType<ShopMechannic>();
+
+            if (shopMechannic.GetBuyedLists() == null)
+            {
+                return "Belum Beli";
+            }
+
+            if(shopMechannic.GetBuyedLists().Contains(targetedShopObject))
+            {
+                return "Sudah Beli";
+            }
+
+            return "Belum Beli";
+
+           
         }
 
         public override void ResetValues()

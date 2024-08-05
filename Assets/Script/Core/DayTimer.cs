@@ -49,11 +49,11 @@ namespace TestBR.Core
             {
                 onAnHourLeft.Invoke();
             }
-            //else if (currentHour == 17)
-            //{
-            //    isClosed = true;
-            //    print("Toko sudah ditutup");
-            //}
+            else if (currentHour == 17)
+            {
+                isClosed = true;
+                print("Toko sudah ditutup");
+            }
         }
 
         public void TimeDisplay()

@@ -8,12 +8,13 @@ namespace TestBR.Openning
 {
     public class NpcSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject npcPrefab;
+        [SerializeField] private GameObject[] npcPrefab;
         [SerializeField] private GameObject carPrefab;
         [SerializeField] private Transform[] spawnLocations;
         [SerializeField] private Transform[] carLocations;
         [SerializeField] private TotalCustomer totalCustomer;
         [SerializeField] private DoorMechanic restaurantDoor;
+        [SerializeField] private RecapMechanic recapMechanic;
 
         private OpeningMechanic openingMechanic;
         
@@ -28,10 +29,11 @@ namespace TestBR.Openning
         public void GenerateNPC()
         {
             int spawnLocationIndex = Random.Range(0, spawnLocations.Length);
+            int npcCharIndex = Random.Range(0, npcPrefab.Length);
             int targetPoisitionIndex = 0;
 
 
-            GameObject spawnedNpc = Instantiate(npcPrefab, spawnLocations[spawnLocationIndex].position, Quaternion.identity);
+            GameObject spawnedNpc = Instantiate(npcPrefab[npcCharIndex], spawnLocations[spawnLocationIndex].position, Quaternion.identity);
 
             
             
@@ -47,7 +49,11 @@ namespace TestBR.Openning
 
             spawnedNpc.GetComponent<OnRestoBehaviour>().onRestoDone.AddListener(openingMechanic.NpcPayments);
             spawnedNpc.GetComponent<OnRestoBehaviour>().onRestoDone.AddListener(totalCustomer.AddCustomerCounter);
+            
+
+
             spawnedNpc.GetComponent<OnRestoBehaviour>().onEnterResto.AddListener(restaurantDoor.StartDoorOpen);
+            spawnedNpc.GetComponent<OnRestoBehaviour>().onEnterResto.AddListener(recapMechanic.AddTotalCustomerToday);
 
 
             spawnedNpc.GetComponent<NpcController>().SetNPCTarget(spawnLocations[targetPoisitionIndex].name);

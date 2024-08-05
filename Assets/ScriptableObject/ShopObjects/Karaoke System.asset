@@ -15,8 +15,10 @@ MonoBehaviour:
   objectName: Karaoke
   shopEnum: 0
   adImage: {fileID: 21300000, guid: 59130ff5a1c574c42a68917ac5d05ef7, type: 3}
+  shopIcon: {fileID: 21300000, guid: 77b6fb60531780d4b8dc7aed31ba4205, type: 3}
   priceAmount: 400
-  maintenanceCost: 0
-  positiveObjectEffects: []
+  maintenanceCost: -20
+  positiveObjectEffects:
+  - {fileID: 11400000, guid: 4850a7e1c0c07074f8c914a8dd6964f5, type: 2}
   negativeObjectEffects: []
   descriptionText: Pengunjung bisa bernyanyi sepuasnya
