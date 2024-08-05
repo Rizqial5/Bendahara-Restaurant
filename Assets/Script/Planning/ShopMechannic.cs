@@ -14,6 +14,7 @@ namespace TestBR.Planning
         [SerializeField] ShopObjectSO[] shopObjectSOs;
         [SerializeField] GameObject shopObjectButton;
         [SerializeField] Transform shopPanelTransform;
+        [SerializeField] Image adImageLocation;
 
 
         [SerializeField] private GameObject shopPanelUI;
@@ -138,6 +139,8 @@ namespace TestBR.Planning
 
             buyedShopList.Add(tempShopObject);
             tempShopObject.SetMaintenanceCost();
+
+            adImageLocation.sprite = tempShopObject.GetAdImage();
 
             
         }

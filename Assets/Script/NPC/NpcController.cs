@@ -10,6 +10,8 @@ namespace TestBR.NPC
         private NpcMover npcMover;
         private OnRestoBehaviour restoBehaviour;
 
+        private string targetTagLocation;
+
         private void Awake()
         {
             restoBehaviour = GetComponent<OnRestoBehaviour>();
@@ -29,7 +31,21 @@ namespace TestBR.NPC
             return restoBehaviour.isDone;
         }
 
+        public void SetNPCTarget(string targetTag)
+        {
+            targetTagLocation = targetTag;
+            
+        }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.name == targetTagLocation)
+            {
+                Destroy(gameObject, 0.2f);
+            }
+
+
+        }
 
     }
 }

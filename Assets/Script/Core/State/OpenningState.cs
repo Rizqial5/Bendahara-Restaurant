@@ -21,6 +21,7 @@ namespace TestBR.Core
 
             
             openingMechanic.GetNpcSpawner().RepeatSpawnCars();
+            openingMechanic.GetNpcSpawner().RepeatSpawnNpc();
 
             //Effect Activation
         }
@@ -28,6 +29,8 @@ namespace TestBR.Core
         public override void ExitState()
         {
             Debug.Log("Toko tutup");
+
+            openingMechanic.GetNpcSpawner().StopSpawner();
 
             openingMechanic.GetDayTimer().AddDay();
 
@@ -58,13 +61,13 @@ namespace TestBR.Core
                 openingMechanic.GetResourcesDatabase().AddTotalSource(StatsEnum.Gold, 100);
             }
 
+            #endregion
+
+
             if (openingMechanic.GetResourcesDatabase().CheckResources(StatsEnum.FoodIngredients))
             {
                 openingMechanic.GetDayTimer().SetIsClosed(true);
             }
-
-            #endregion
-
 
             openingMechanic.GetDayTimer().TimeStart();
 

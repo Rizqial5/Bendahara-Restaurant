@@ -147,7 +147,7 @@ TextureImporter:
         width: 224
         height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,6 +155,48 @@ TextureImporter:
       bones: []
       spriteID: c8eacf17dbbd62e428ae481cabfd6b19
       internalID: 1061112921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ad_location
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 422
+        width: 136
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb55e6e123fcf8469113cfa48f28a4d
+      internalID: -1898717945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ad_Image
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 434
+        width: 124
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ceb88104d6feef458fa4608d6fe69d7
+      internalID: -416897371
       vertices: []
       indices: 
       edges: []
@@ -170,6 +212,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Ad_Image: -416897371
+      Ad_location: -1898717945
       Buildings: 2103831491
       Buildings 2: -217199376
       Buildings part 2 1: 1061112921

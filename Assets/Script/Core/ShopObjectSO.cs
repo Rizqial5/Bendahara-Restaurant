@@ -11,6 +11,7 @@ namespace TestBR.Core
     {
         [SerializeField] string objectName;
         [SerializeField] ShopEnum shopEnum;
+        [SerializeField] Sprite adImage;
 
         [SerializeField] float priceAmount;
         [SerializeField] float maintenanceCost;
@@ -38,6 +39,7 @@ namespace TestBR.Core
         public float GetMaintenanceCost()
         {  return maintenanceCost; }
 
+        public Sprite GetAdImage() { return adImage; }
         public void ActivateEffect()
         {
             foreach (ShopEffectSO item in positiveObjectEffects)

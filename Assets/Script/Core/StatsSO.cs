@@ -53,7 +53,7 @@ namespace TestBR.Core
         {
             BuildLookupTable();
 
-            if (resourcesLookUpTable[recourceCategory] == 0)
+            if (resourcesLookUpTable[recourceCategory] <= 0)
             {
                 return true;
             }

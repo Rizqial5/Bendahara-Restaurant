@@ -47,18 +47,28 @@ namespace TestBR.Openning
 
             spawnedNpc.GetComponent<OnRestoBehaviour>().onRestoDone.AddListener(openingMechanic.NpcPayments);
             spawnedNpc.GetComponent<OnRestoBehaviour>().onRestoDone.AddListener(totalCustomer.AddCustomerCounter);
-
             spawnedNpc.GetComponent<OnRestoBehaviour>().onEnterResto.AddListener(restaurantDoor.StartDoorOpen);
+
+
+            spawnedNpc.GetComponent<NpcController>().SetNPCTarget(spawnLocations[targetPoisitionIndex].name);
 
             spawnedNpc.GetComponent<NpcMover>().SetTarget(spawnLocations[targetPoisitionIndex]);
             spawnedNpc.GetComponent<NpcMover>().SetInitialTarget(spawnLocations[targetPoisitionIndex]);
         }
 
+        public void RepeatSpawnNpc()
+        {
+            InvokeRepeating("GenerateNPC", 2, 2);
+        }
         public void RepeatSpawnCars()
         {
             InvokeRepeating("GenerateCars", 5, 5);
         }
 
+        public void StopSpawner()
+        {
+            CancelInvoke();
+        }
         public void GenerateCars()
         {
             int spawnLocationIndex = Random.Range(0, spawnLocations.Length);
