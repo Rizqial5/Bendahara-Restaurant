@@ -35,7 +35,8 @@ namespace TestBR.Core
         public float GetPrice()
         { return priceAmount; }
 
-       
+        public float GetMaintenanceCost()
+        {  return maintenanceCost; }
 
         public void ActivateEffect()
         {

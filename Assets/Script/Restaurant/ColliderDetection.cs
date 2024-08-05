@@ -8,12 +8,9 @@ namespace TestBR.Restaurant
     public class ColliderDetection : MonoBehaviour
     {
 
-        AttractMechanic attractMechanic;
+        [SerializeField] AttractMechanic attractMechanic;
 
-        private void Awake()
-        {
-            attractMechanic = GetComponentInParent<AttractMechanic>();
-        }
+       
         // Start is called before the first frame update
         private void OnTriggerEnter2D(Collider2D collision)
         {

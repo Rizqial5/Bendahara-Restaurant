@@ -17,7 +17,8 @@ namespace TestBR.Core
 
             planningMechanic.GetMissionManager().GenerateMission();
 
-            
+            planningMechanic.GetResourceAllocation().FoodAllocations();
+            planningMechanic.GetGoldReport().ShowFormulation();
             
         }
 
@@ -28,6 +29,7 @@ namespace TestBR.Core
             planningMechanic.PlayOpening();
 
             planningMechanic.GetResourceAllocation().StarAllocation();
+
             planningMechanic.GetGoldReport().AddFormulation();
 
         }

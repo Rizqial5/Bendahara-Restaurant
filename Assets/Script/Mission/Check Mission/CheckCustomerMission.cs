@@ -45,7 +45,7 @@ namespace TestBR.Mission
         {
             totalCustomer = FindAnyObjectByType<TotalCustomer>();
 
-            return totalCustomer.GetTotalCustomer().ToString();
+            return "Customer : " + totalCustomer.GetTotalCustomer() + "/" + targetTotalCustomer;
         }
 
         public override void ResetValues()

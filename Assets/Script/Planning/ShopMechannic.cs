@@ -23,6 +23,7 @@ namespace TestBR.Planning
         [SerializeField] TextMeshProUGUI showItemName;
         [SerializeField] TextMeshProUGUI showItemDesc;
         [SerializeField] TextMeshProUGUI showItemPrice;
+        [SerializeField] TextMeshProUGUI showMaintenanceCost;
 
 
 
@@ -45,6 +46,7 @@ namespace TestBR.Planning
             showItemName.text = "";
             showItemDesc.text = "";
             showItemPrice.text = "";
+            showMaintenanceCost.text = "";
         }
         public void ShopButton()
         {
@@ -96,6 +98,7 @@ namespace TestBR.Planning
             showItemName.text = shopObject.GetObjectName();
             showItemDesc.text = shopObject.GetDescriptionText();
             showItemPrice.text = "Harga : " + shopObject.GetPrice().ToString();
+            showMaintenanceCost.text = "Maintenance Cost : " + shopObject.GetMaintenanceCost().ToString();
 
 
             tempPrice = shopObject.GetPrice();
