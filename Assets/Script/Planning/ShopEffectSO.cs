@@ -18,9 +18,21 @@ namespace TestBR.Planning
             return string.Empty;
         }
 
+        public virtual void SetDurationTimer()
+        {
+
+        }
+
+        public virtual void ResetValues()
+        {
+
+        }
+
         public EffectEnum GetEffectEnum()
         {
             return effectEnum;
         }
+
+
     }
 }

@@ -49,7 +49,12 @@ namespace TestBR.Core
             {
                 item.ActivateEffect();
             }
-          
+
+            foreach (ShopEffectSO item in negativeObjectEffects)
+            {
+                item.ActivateEffect();
+            }
+
         }
 
         public List<string> GetShopEffectsDescription()
@@ -64,6 +69,18 @@ namespace TestBR.Core
             return results;
         }
 
+        public List<string> GetShopNegativeEffectsDescription()
+        {
+            List<string> results = new List<string>();
+
+            foreach (ShopEffectSO item in negativeObjectEffects)
+            {
+                results.Add(item.GetEffectDescription());
+            }
+
+            return results;
+        }
+
         public void SetMaintenanceCost()
         {
             planningMechanic = FindAnyObjectByType<PlanningMechanic>();
@@ -71,6 +88,34 @@ namespace TestBR.Core
             Debug.Log("Maintenance telah ditambahkan " + maintenanceCost);
 
             planningMechanic.GetGoldReport().AddMaintenanceCost(maintenanceCost);
+        }
+
+        public void SetTimerEffect()
+        {
+            openingMechanic = FindAnyObjectByType<OpeningMechanic>();
+
+            foreach (ShopEffectSO item in positiveObjectEffects)
+            {
+                openingMechanic.GetDayTimer().onChangeDays.AddListener(item.SetDurationTimer);
+            }
+
+            foreach (ShopEffectSO item in negativeObjectEffects)
+            {
+                openingMechanic.GetDayTimer().onChangeDays.AddListener(item.SetDurationTimer);
+            }
+        }
+
+        public void ResetValues()
+        {
+            foreach (ShopEffectSO item in positiveObjectEffects)
+            {
+                item.ResetValues();
+            }
+
+            foreach (ShopEffectSO item in negativeObjectEffects)
+            {
+                item?.ResetValues();
+            }
         }
 
         public float GetModiiferPercentage(StatsEnum statsEnum)

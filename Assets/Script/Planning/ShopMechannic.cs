@@ -18,6 +18,7 @@ namespace TestBR.Planning
 
 
         [SerializeField] private GameObject shopPanelUI;
+        [SerializeField] private NotifSystem notifSystem;
 
         
         [Header("Show Component")]
@@ -39,10 +40,11 @@ namespace TestBR.Planning
 
         private List<ShopObjectSO> buyedShopList;
         private List<string> itemEffectDescs;
+        private List<string> itemNegativeEffectDescs;
         private List<TextMeshProUGUI> spawnedItemEffects;
 
 
-
+        private int buyedSession;
 
         private void Start()
         {
@@ -112,8 +114,10 @@ namespace TestBR.Planning
             }
 
             itemEffectDescs = shopObject.GetShopEffectsDescription();
+            itemNegativeEffectDescs = shopObject.GetShopNegativeEffectsDescription();
 
-            ShowItemPositiveEffects(itemEffectDescs);
+
+            ShowItemEffects(itemEffectDescs, itemNegativeEffectDescs);
 
             tempPrice = shopObject.GetPrice();
             tempShopObject = shopObject;
@@ -130,7 +134,9 @@ namespace TestBR.Planning
 
             if(tempShopObject == null)
             {
-                print("Pilih item dulu");
+                
+
+                notifSystem.StartNotif("Pilih item dulu");
                 return;
             }
 
@@ -138,12 +144,22 @@ namespace TestBR.Planning
             {
                 print("Uang masih kurang");
 
+                notifSystem.StartNotif("Uang Masih Kurang");
+
                 return;
             }
 
             if(buyedShopList.Contains(tempShopObject))
             {
                 print("Barang sudah dibeli");
+
+                notifSystem.StartNotif("Barang sudah dibeli");
+                return;
+            }
+
+            if(buyedSession == 1)
+            {
+                notifSystem.StartNotif("Per hari maksimal beli " + buyedSession + " kali");
                 return;
             }
 
@@ -151,7 +167,11 @@ namespace TestBR.Planning
 
 
             buyedShopList.Add(tempShopObject);
+
+            tempShopObject.SetTimerEffect();
             tempShopObject.SetMaintenanceCost();
+
+            buyedSession++;
 
             adImageLocation.sprite = tempShopObject.GetAdImage();
 
@@ -167,7 +187,7 @@ namespace TestBR.Planning
             shopEffectActivator.ActivateShopEffects(buyedShopList);
         }
 
-        public void ShowItemPositiveEffects(List<string> effectDescs)
+        public void ShowItemEffects(List<string> effectDescs, List<string> negativeEffects)
         {
             
 
@@ -193,11 +213,33 @@ namespace TestBR.Planning
                 spawnedItemEffects.Add(spawnedText);
                 
             }
+
+            if (negativeEffects == null) return;
+            foreach (string item in negativeEffects)
+            {
+                TextMeshProUGUI spawnedText = Instantiate(effecItemsTextPrefab, showItemEffects.transform);
+
+                spawnedText.text = item;
+                spawnedText.color = Color.red;
+
+                spawnedItemEffects.Add(spawnedText);
+            }
+
+
         }
+
+        public void ResetBuyedSession()
+        { buyedSession = 0; }
 
         public List<ShopObjectSO> GetBuyedLists()
         { return buyedShopList; }
 
-        
+        private void OnDisable()
+        {
+            foreach (ShopObjectSO item in shopObjectSOs)
+            {
+                item.ResetValues();
+            }
+        }
     }
 }

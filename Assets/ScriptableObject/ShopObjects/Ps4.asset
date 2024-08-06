@@ -21,5 +21,6 @@ MonoBehaviour:
   positiveObjectEffects:
   - {fileID: 11400000, guid: febb3d5a026cfe64aa24e68d4cc775a2, type: 2}
   - {fileID: 11400000, guid: b39b33781fef8c541985130fbf52d31b, type: 2}
-  negativeObjectEffects: []
+  negativeObjectEffects:
+  - {fileID: 11400000, guid: 32d25782e54daaf48aac7e0eb3588540, type: 2}
   descriptionText: Ps4 untuk bermain

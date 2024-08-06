@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TestBR.Core;
 using UnityEngine;
 
 namespace TestBR.Mission
@@ -8,6 +9,7 @@ namespace TestBR.Mission
     public class MissionManager : MonoBehaviour
     {
         [SerializeField] List<MissionSO> missionDatabase;
+        [SerializeField] NotifSystem notifSystem;
 
         private List<MissionSO> activeMissions;
 
@@ -16,7 +18,7 @@ namespace TestBR.Mission
 
         private Dictionary<MissionSO, bool> missionDatabaseDict;
 
-        
+        private bool isNotifAppear = false;
 
 
         public void GenerateMission()
@@ -87,16 +89,21 @@ namespace TestBR.Mission
 
                 if(item.CheckMission())
                 {
-
-                    
+                    if(missionDatabaseDict[item] == true) continue ;
 
                     missionDatabaseDict[item] = true;
 
-                    print(item.GetMissionTitle() + " Telah Selesai");
+                    if (!isNotifAppear)
+                    {
+                        notifSystem.StartNotif(item.GetMissionTitle() + " Telah Selesai");
 
-                    
+                        isNotifAppear = true;
+                    }
+
 
                 }
+
+                isNotifAppear = false;
             }
         }
 

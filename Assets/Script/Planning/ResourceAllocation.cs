@@ -17,14 +17,20 @@ namespace TestBR.Planning
         private float totalSpendingGold;
         private float totalGetFood;
 
+        private float baseSpendingModifier;
+        private float baseSpendingTotal;
+
         private GoldReport goldReport;
 
         [SerializeField] TextMeshProUGUI spendingGoldText;
         [SerializeField] TextMeshProUGUI getFoodText;
         [SerializeField] TextMeshProUGUI allocationLevelText;
         [SerializeField] GameObject allocationPanel;
+        [SerializeField] NotifSystem notifSystem;
 
         private int allocationLevel = 1;
+
+        private bool isNotifAppeared = false;
 
         private void Awake()
         {
@@ -32,12 +38,15 @@ namespace TestBR.Planning
         }
         public void StarAllocation()
         {
+            if (goldReport.GetTotalGold() < 0) return;
             resourcesDatabase.AddTotalSource(StatsEnum.FoodIngredients, totalGetFood);
         }
 
         public void FoodAllocations()
         {
-            totalSpendingGold = baseSpendingGold * allocationLevel;
+            baseSpendingTotal = baseSpendingGold + (baseSpendingGold * baseSpendingModifier / 100);
+
+            totalSpendingGold = baseSpendingTotal * allocationLevel;
 
             totalGetFood = baseGetFood * allocationLevel;
         }
@@ -71,6 +80,10 @@ namespace TestBR.Planning
             allocationLevelText.text = allocationLevel.ToString();
         }
 
+        
+
+        
+
         public void ShowAllocationUI()
         {
 
@@ -96,6 +109,11 @@ namespace TestBR.Planning
             spendingGoldText.text = totalSpendingGold.ToString();
             getFoodText.text = totalGetFood.ToString();
             allocationLevelText.text = allocationLevel.ToString();
+        }
+
+        public void SetPriceModifier(float setModifier)
+        {
+            baseSpendingModifier = setModifier;
         }
 
         public float GetSpendingGold()

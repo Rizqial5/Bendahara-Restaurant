@@ -32,6 +32,11 @@ namespace TestBR.Core
 
             planningMechanic.GetGoldReport().AddFormulation();
 
+
+            planningMechanic.GetShopMechannic().ResetBuyedSession();
+
+            
+
         }
 
         public override void FrameUpdate()

@@ -16,6 +16,8 @@ namespace TestBR.Core
         {
             base.EnterState();
 
+            
+
             openingMechanic.GetDayTimer().SetStartHour(8);
             openingMechanic.GetDayTimer().TimeDisplay();
 
@@ -24,6 +26,8 @@ namespace TestBR.Core
             openingMechanic.GetNpcSpawner().RepeatSpawnNpc();
 
             openingMechanic.GetRecapMechanic().ResetRecap();
+
+           
 
             //Effect Activation
         }
@@ -43,6 +47,8 @@ namespace TestBR.Core
             planningMechanic.ActivePlanning();
 
             
+
+
         }
 
         public override void FrameUpdate()
@@ -51,6 +57,8 @@ namespace TestBR.Core
             planningMechanic.GetShopMechannic().ActivateShopEffects();
 
             openingMechanic.GetDayTimer().TimeStart();
+
+            
 
             #region Input for Debug
 

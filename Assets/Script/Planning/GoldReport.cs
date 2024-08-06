@@ -18,6 +18,7 @@ namespace TestBR.Planning
 
 
         private ResourceAllocation resourceAllocation;
+        private NotifSystem notifSystem;
 
         private float ingredientSpend;
         private float maintenanceSpend;
@@ -28,6 +29,7 @@ namespace TestBR.Planning
         private void Awake()
         {
             resourceAllocation = GetComponent<ResourceAllocation>();
+            notifSystem = FindAnyObjectByType<NotifSystem>();
         }
 
         public void ShowFormulation()
@@ -56,8 +58,16 @@ namespace TestBR.Planning
 
         public void AddFormulation()
         {
+            if(totalGold < 0)
+            {
+                notifSystem.StartNotif("Uang tidak cukup untuk beli bahan");
+                return;
+            }
+            
             resourcesDatabase.SetTotalSource(StatsEnum.Gold, totalGold);
         }
+
+        
 
         public void AddMaintenanceCost(float addAmount)
         {
@@ -65,5 +75,8 @@ namespace TestBR.Planning
 
             
         }
+
+        public float GetTotalGold()
+        { return totalGold; }
     }
 }
