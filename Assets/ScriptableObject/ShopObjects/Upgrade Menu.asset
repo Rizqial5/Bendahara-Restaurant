@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570ecb2580bb8c4895a29db79152735, type: 3}
+  m_Name: Upgrade Menu
+  m_EditorClassIdentifier: 
+  objectName: Upgrade Menu
+  shopEnum: 1
+  adImage: {fileID: 21300000, guid: 8a131a8e7c3dddc449fd2d420e121f8a, type: 3}
+  shopIcon: {fileID: 21300000, guid: 468b642f06edc414c8fc41fa246aa14e, type: 3}
+  priceAmount: 1000
+  maintenanceCost: -25
+  positiveObjectEffects:
+  - {fileID: 11400000, guid: 27902d6b05d78754688c126f316f4c7a, type: 2}
+  negativeObjectEffects:
+  - {fileID: 11400000, guid: 4143f7d68d2bac0418a46ee6516dd22f, type: 2}
+  descriptionText: Upgrade kualitas makanan dan memperbanyak menu baru

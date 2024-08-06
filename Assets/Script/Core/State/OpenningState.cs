@@ -54,7 +54,7 @@ namespace TestBR.Core
         public override void FrameUpdate()
         {
             planningMechanic.GetMissionManager().CheckCompleteMission();
-            planningMechanic.GetShopMechannic().ActivateShopEffects();
+            //planningMechanic.GetShopMechannic().ActivateShopEffects();
 
             openingMechanic.GetDayTimer().TimeStart();
 
@@ -62,16 +62,13 @@ namespace TestBR.Core
 
             #region Input for Debug
 
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                openingMechanic.GetDayTimer().SetIsClosed(true);
-            }
-
+            
             #endregion
 
 
             if (openingMechanic.GetResourcesDatabase().CheckResources(StatsEnum.FoodIngredients) )
             {
+                openingMechanic.GetNotifSystem().SpawnNotif("Tutup karena kehabisan stock");
                 openingMechanic.GetDayTimer().SetIsClosed(true);
             }
 

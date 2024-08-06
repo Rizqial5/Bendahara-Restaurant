@@ -170,6 +170,7 @@ namespace TestBR.Planning
 
             tempShopObject.SetTimerEffect();
             tempShopObject.SetMaintenanceCost();
+            tempShopObject.ActivateEffect();
 
             buyedSession++;
 

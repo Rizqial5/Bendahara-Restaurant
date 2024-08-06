@@ -12,6 +12,7 @@ namespace TestBR.Planning
         [SerializeField] int durationDays;
 
         private bool isNotifAppeared = false;
+        private bool isEffectOver = false;
 
         private ResourceAllocation resourceAllocation;
         private NotifSystem notifSystem;
@@ -19,20 +20,11 @@ namespace TestBR.Planning
         public override void ActivateEffect()
         {
             notifSystem = FindAnyObjectByType<NotifSystem>();
-
-            if (durationDays <= 0)
-            {
-                resourceAllocation.SetPriceModifier(0);
-
-                if (isNotifAppeared) return;
-               
-                notifSystem.StartNotif("Effect telah kembali ke semula");
-                isNotifAppeared=true;
-
-                return;
-            }
-
             resourceAllocation = FindAnyObjectByType<ResourceAllocation>();
+
+            
+
+            
 
             resourceAllocation.SetPriceModifier(priceModifierPercentage);
         }
@@ -47,8 +39,23 @@ namespace TestBR.Planning
 
         public override void SetDurationTimer()
         {
-            
-            if (durationDays <= 0) return;
+
+            if (durationDays <= 0)
+            {
+                if (!isEffectOver) return;
+
+                resourceAllocation.SetPriceModifier(0);
+                isEffectOver = true;
+
+                if (isNotifAppeared) return;
+
+                notifSystem.StartNotif("Effect telah kembali ke semula");
+                isNotifAppeared = true;
+
+                return;
+
+                
+            }
             durationDays--;
         }
 

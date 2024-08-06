@@ -45,7 +45,7 @@ namespace TestBR.Core
             
             planningMechanic.GetMissionManager().CheckCompleteMission();
             
-            planningMechanic.GetShopMechannic().ActivateShopEffects();
+            //planningMechanic.GetShopMechannic().ActivateShopEffects();
         }
 
         public override void PhysicsUpdate()

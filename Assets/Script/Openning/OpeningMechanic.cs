@@ -11,13 +11,15 @@ namespace TestBR.Openning
         [SerializeField] private NpcSpawner npcSpawner;
         [SerializeField] StatsSO resourcesDatabase;
         [SerializeField] private RecapMechanic recapMechanic;
+        [SerializeField] private NotifSystem notifSystem;
 
 
         private float moneyModifier;
         private float foodModifier;
         private float baseModifier = 0;
-        
-        
+
+        [SerializeField] float foodPrice;
+        [SerializeField] float foodDecreaseAmount;
 
         private DayTimer dayTimer;
 
@@ -34,8 +36,8 @@ namespace TestBR.Openning
 
         public void NpcPayments()
         {
-            float amount = 10; //dummy
-            float foodDecreaseAmount = -5;
+            float amount = foodPrice; //dummy
+            
 
             
 
@@ -62,11 +64,21 @@ namespace TestBR.Openning
             
         }
 
+        public void AddBaseGoldPayment(float addAmount)
+        {
+            foodPrice += addAmount;
+        }
+
+        public void AddBaseFoodDecreases(float addAmount)
+        {
+            foodDecreaseAmount += addAmount;
+        }
         
 
         public StatsSO GetResourcesDatabase() { return resourcesDatabase; }
         public DayTimer GetDayTimer() { return dayTimer; }
         public RecapMechanic GetRecapMechanic() { return recapMechanic; }
+        public NotifSystem GetNotifSystem() { return notifSystem; }
         
     }
 }

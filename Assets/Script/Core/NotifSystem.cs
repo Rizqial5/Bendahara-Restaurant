@@ -26,25 +26,13 @@ namespace TestBR.Core
             SpawnNotif(notifDetails);
         }
 
-        //public IEnumerator SetActiveNotif(string notifText)
-        //{
-        //    notifPanel.SetActive(true);
-
-        //    notifTextMesh.text = notifText;
-
-        //    yield return new WaitForSeconds(1f);
-
-        //    notifPanel.SetActive(false);
-
-        //}
-
         public void SpawnNotif(string notifText)
         {
             GameObject spawnNotif = Instantiate(notifPanel, notifPos);
 
             spawnNotif.GetComponent<NotifPanel>().SetText(notifText);
 
-            Destroy(spawnNotif, 1f);
+            Destroy(spawnNotif, 1.5f);
         }
     }
 }
