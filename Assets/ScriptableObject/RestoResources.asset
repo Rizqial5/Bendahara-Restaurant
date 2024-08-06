@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsSource:
   - resourceCategory: 0
-    totalAmount: 500
+    totalAmount: 700
   - resourceCategory: 1
     totalAmount: 0
